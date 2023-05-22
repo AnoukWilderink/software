@@ -1,10 +1,6 @@
-const express = require('express');
-const app = express();
+const http = require('http');
 
-app.get('/', (req, res) => {
-    res.status(200).send( `<h1> hello ${req.hostname} </h1>`);
-})
-
-app.listen(3000, () => {
-    console.log("started up");
-})
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'});
+  res.end('<h1> Api? </h1>');
+}).listen(3000);
